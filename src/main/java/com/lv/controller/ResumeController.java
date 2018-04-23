@@ -147,6 +147,10 @@ public class ResumeController {
         audi.saveAudition(audition);
         System.out.println("777777777");
         return "recruitDetails";
+    }
 
+    @RequestMapping("/intoResume")
+    public String inoResume(HttpSession session){//
+        return null;
     }
 }

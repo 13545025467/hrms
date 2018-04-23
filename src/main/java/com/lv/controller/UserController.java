@@ -46,7 +46,7 @@ public class UserController {
                 if (null!=manage1){
                     session.setAttribute("manage",manage1);
                     session.removeAttribute("error");
-                    return "manageView";
+                    return "../../manageView";
                 }
                 session.setAttribute("error","账号或密码错误");
                 return "../../index";

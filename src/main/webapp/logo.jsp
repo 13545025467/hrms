@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: xgq
-  Date: 2018/4/21
-  Time: 18:03
+  Date: 2018/4/23
+  Time: 13:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,6 +16,8 @@
     <title></title>
 </head>
 <body>
-<img src="../WEB-INF/images/logo.jpg" alt="logo">
+<div style="margin-left: 200px">
+    <img src="/WEB-INF/images/logo12.jpg>" alt="logo" width="959">
+</div>
 </body>
 </html>

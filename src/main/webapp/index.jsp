@@ -16,9 +16,8 @@
     <title></title>
 </head>
 <frameset rows="20%,*" name="allWindow">
-    <frame >
-        <<img src="logo.jpg" alt="logo">
-   </frame>
+    <frame src="logo.jsp">
+    </frame>
 
     <frameset cols="15%,70%,*">
         <frame src="index2.jsp" noresize="noresize" frameborder="no"  />

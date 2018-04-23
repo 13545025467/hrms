@@ -27,7 +27,7 @@
 年龄：${sessionScope.resume.res_age}<br>
 手机号码：${sessionScope.resume.res_tel}<br>
 邮箱地址：${sessionScope.resume.res_email}<br>
-<h3>教育背景</h3>
+<h3>教育背景</h3>AUDI_TIME
 学校名称：${sessionScope.education.edu_school}<br>
 专业名称：${sessionScope.education.edu_major}<br>
 学历/学位：${sessionScope.education.edu_degree}<br>

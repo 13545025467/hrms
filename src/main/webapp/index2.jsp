@@ -19,6 +19,11 @@
 <head>
     <base href="<%=basePath%>"/>
     <title></title>
+    <style type="text/css">
+        a{
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <ul>
