@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lv.dao.ResumeMapper">
+    <insert id="saveResume2">
+        INSERT INTO T_RESUME(RES_NAME,RES_SEX,RES_AGE, RES_TEL, RES_EMAIL, USER_ID, RES_STATE)  VALUES
+        (RES_NAME=#{res_name},RES_SEX=#{res_sex},RES_AGE=#{res_age},RES_TEL=#{res_tel},RES_EMAIL=#{res_email},USER_ID=#{user.user_id},RES_STATE=#{res_state})
+    </insert>
+    <insert id="saveResume">
+        INSERT  INTO T_RESUME(RES_NAME, RES_SEX, RES_AGE, RES_TEL, RES_EMAIL, USER_ID, RES_STATE)
+        VALUES (#{res_name},#{res_sex},#{res_age},#{res_tel},#{res_email},#{user.user_id},#{res_state})
+    </insert>
+    <update id="updateResume">
+        UPDATE T_RESUME
+        <set>
+            <if test="res_name!=null">
+                res_name = #{res_name},
+            </if>
+            <if test="res_sex!=null">
+                res_sex=#{res_sex},
+            </if>
+            <if test="res_age!=null">
+                res_age=#{res_age},
+            </if>
+            <if test="res_tel!=null">
+                res_tel=#{res_tel},
+            </if>
+            <if test="res_email!=null">
+                res_email=#{res_email},
+            </if>
+            <if test="res_state!=null">
+                res_state=#{res_state}
+            </if>
+        </set>
+       where user_id=#{user.user_id}
+    </update>
+    <delete id="deleteResume">
+        DELETE FROM T_RESUME  WHERE USER_ID=#{user_id}
+    </delete>
+    <select id="getResume" resultType="com.lv.model.Resume">
+        SELECT * FROM T_RESUME WHERE USER_ID=#{user_id}
+    </select>
+    <select id="getAll" resultType="com.lv.model.Resume">
+         SELECT * FROM T_RESUME WHERE RES_STATE=#{res_state}
+    </select>
+</mapper>

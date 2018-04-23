@@ -1,0 +1,17 @@
+package com.lv.service;
+
+import com.lv.model.Audition;
+import com.lv.model.Resume;
+
+import java.util.Set;
+
+/**
+ * Created by xgq on 2018/4/23.
+ */
+public interface AuditionService {
+    Set<Audition> getAudition();
+    Set<Audition> getAuditionByUser(Resume resume);
+    boolean saveAudition(Audition audition);
+    boolean updateAudition(Audition audition);
+    boolean deleteAudition(Audition audition);
+}

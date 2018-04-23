@@ -1,5 +1,6 @@
 package com.lv.dao;
 
+import com.lv.model.Manage;
 import com.lv.model.User;
 
 /**
@@ -7,4 +8,8 @@ import com.lv.model.User;
  */
 public interface UserMapper {
     User login(User user);
+    User register(User user);
+    boolean save(User user);
+    boolean updatePass(User user);
+    Manage manageLogin(Manage manage);
 }

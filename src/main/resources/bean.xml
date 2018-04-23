@@ -40,6 +40,7 @@
     <tx:advice id="interceptor" transaction-manager="transactionManager">
         <tx:attributes>
             <tx:method name="add*"/>
+            <tx:method name="save*"/>
             <tx:method name="update*"/>
             <tx:method name="delete*"/>
         </tx:attributes>

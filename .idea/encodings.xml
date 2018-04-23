@@ -7,7 +7,20 @@
     <file url="file://$PROJECT_DIR$/src/main/resources/db.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/log4j.properties" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/resources/springMVC-servlet.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/EducationCenter" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MyAccount" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/MyInfo" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/OnlineTeaching" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/Script" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/Style" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/User" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/images/logo.jpg" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/images/logo.jpg" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/index1a.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/index2a.jsp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/indexa.jsp" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>

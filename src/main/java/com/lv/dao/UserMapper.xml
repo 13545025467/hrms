@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lv.dao.UserMapper">
+    <insert id="save">
+        INSERT INTO T_USER(USER_NAME,USER_PASS) VALUES (#{user_name},#{user_pass})
+    </insert>
+    <update id="updatePass">
+        UPDATE T_USER SET USER_PASS=#{user_pass} WHERE user_name=#{user_name}
+    </update>
 
     <select id="login" resultType="com.lv.model.User">
-        SELECT * FROM T_USER WHERE u_name=#{u_name} and u_pass=#{u_pass}
+        SELECT * FROM T_USER WHERE USER_NAME=#{user_name} and user_pass=#{user_pass}
+    </select>
+    <select id="register" resultType="com.lv.model.User">
+        SELECT * FROM T_USER WHERE USER_NAME=#{user_name}
+    </select>
+    <select id="manageLogin" resultType="com.lv.model.Manage">
+         SELECT * FROM T_MANAGE WHERE MAN_NAME=#{man_name} and man_pass=#{man_pass}
     </select>
 </mapper>

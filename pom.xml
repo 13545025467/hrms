@@ -274,9 +274,9 @@
         </includes>
       </resource>
       <!--指定资源的位置-->
-      <!--  <resource>
+      <resource>
           <directory>src/main/resources</directory>
-        </resource>-->
+        </resource>
     </resources>
     <finalName>testMaven</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -312,5 +312,15 @@
         </plugin>-->
       </plugins>
     </pluginManagement>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <configuration>
+                  <source>1.5</source>
+                  <target>1.5</target>
+              </configuration>
+          </plugin>
+      </plugins>
   </build>
 </project>

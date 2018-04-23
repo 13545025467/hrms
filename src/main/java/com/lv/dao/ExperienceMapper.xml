@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lv.dao.ExperienceMapper">
+    <insert id="saveExperience">
+        INSERT INTO T_EXPERIENCE( EXP_COMPANY, EXP_IN, EXP_OUT, EXP_POST, EXP_TRADE, RES_ID) VALUES
+        (#{exp_company},to_date(#{exp_in},'yyyy-mm-dd'),to_date(#{exp_out},'yyyy-mm-dd'),#{exp_post},#{exp_trade},#{resume.res_id})
+    </insert>
+    <update id="updateExperience">
+        UPDATE T_EXPERIENCE
+        <set>
+            <if test="exp_company!=null">
+                exp_company = #{exp_company},
+            </if>
+            <if test="exp_in!=null">
+                exp_in=to_date(#{exp_in},'yyyy-mm-dd'),
+            </if>
+            <if test="exp_out!=null">
+                exp_out=to_date(#{exp_out},'yyyy-mm-dd'),
+            </if>
+            <if test="exp_post!=null">
+                exp_post=#{exp_post},
+            </if>
+            <if test="exp_trade!=null">
+                exp_trade=#{exp_trade}
+            </if>
+        </set>
+        where res_id=#{resume.res_id}
+    </update>
+    <delete id="deleteExperience">
+        DELETE FROM T_EXPERIENCE WHERE RES_ID=#{res_id}
+    </delete>
+    <select id="getExperience" resultType="com.lv.model.Experience">
+        SELECT * FROM T_EXPERIENCE WHERE RES_ID=#{res_id}
+    </select>
+</mapper>

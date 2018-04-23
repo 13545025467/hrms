@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lv.dao.EducationMapper">
+    <insert id="saveEducation">
+        INSERT INTO T_EDUCTION( EDU_SCHOOL, EDU_DEGREE, EDU_MAJOR, EDU_IN, EDU_OUT, RES_ID) VALUES
+        (#{edu_school},#{edu_degree},#{edu_major},to_date(#{edu_in},'yyyy-mm-dd'),to_date(#{edu_out},'yyyy-mm-dd'),#{resume.res_id})
+    </insert>
+    <update id="updateEducation">
+        UPDATE T_EDUCTION
+        <set>
+            <if test="edu_major!=null">
+                edu_major=#{edu_major},
+            </if>
+            <if test="edu_school!=null">
+                edu_school=#{edu_school},
+            </if>
+            <if test="edu_in!=null">
+                edu_in=to_date(#{edu_in},'yyyy-mm-dd'),
+            </if>
+            <if test="edu_out!=null">
+                edu_out=to_date(#{edu_out},'yyyy-mm-dd'),
+            </if>
+            <if test="edu_degree!=null">
+                edu_degree=#{edu_degree}
+            </if>
+        </set>
+        where res_id=#{resume.res_id}
+    </update>
+    <delete id="deleteEducation">
+        DELETE FROM T_EDUCTION WHERE RES_ID=#{res_id}
+    </delete>
+    <select id="getEducation" resultType="com.lv.model.Education">
+        SELECT * FROM T_EDUCTION WHERE RES_ID=#{res_id}
+    </select>
+
+</mapper>

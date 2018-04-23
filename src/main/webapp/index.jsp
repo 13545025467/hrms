@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: xgq
-  Date: 2018/4/20
-  Time: 13:45
+  Date: 2018/4/21
+  Time: 16:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -15,15 +15,15 @@
     <base href="<%=basePath%>"/>
     <title></title>
 </head>
-<body>
-<fieldset>
-    <legend>登录界面</legend>
-    <form action="login" method="post">
-        账号：<input name="u_name"><br>
-        密码：<input name="u_pass"><br>
-        <input type="submit" value="登录">
-    </form>
-    <h4 style="color: red">${error}</h4>
-</fieldset>
-</body>
+<frameset rows="20%,*" name="allWindow">
+    <frame >
+        <<img src="logo.jpg" alt="logo">
+   </frame>
+
+    <frameset cols="15%,70%,*">
+        <frame src="index2.jsp" noresize="noresize" frameborder="no"  />
+        <frame name="rightWindow" src="http://www.youdao.com" noresize="noresize" ></frame>
+        <frame src="index1.jsp" noresize="noresize" scrolling="no" />
+    </frameset>
+</frameset>
 </html>

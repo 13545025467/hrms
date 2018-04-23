@@ -8,10 +8,11 @@ import java.io.Serializable;
  * Created by xgq on 2018/4/20.
  */
 @Component
-public class User implements Serializable {
-    private int user_id;
-    private String user_name;
-    private String user_pass;
+public class User implements Serializable {//用户表
+    private int user_id; //用户id
+    private String user_name;//用户账号
+    private String user_pass;//用户密码
+   // private Set<Resume> resumes=new HashSet<>();//用户拥有多份简历
 
 
     public User() {
