@@ -24,6 +24,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.register(user);
     }
 
+    public User getUserById(User user) {
+        return userMapper.getUserById(user);
+    }
+
     public boolean save(User user) {
         return userMapper.save(user);
     }

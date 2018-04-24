@@ -9,6 +9,7 @@ import com.lv.model.User;
 public interface UserService {
     User login(User user);
     User register(User user);
+    User getUserById(User user);
     boolean save(User user);
     boolean updatePass(User user);
     Manage manageLogin(Manage manage);

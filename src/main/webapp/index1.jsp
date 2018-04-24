@@ -38,7 +38,7 @@
     账号:<input type="text" name="user_name" autofocus="true" placeholder="用户名" style="width: 140px"></input><br/>
     密码:<input type="password" name="user_pass"
               placeholder="密码" style="width: 140px"></input><br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登录" style="background: green ;width: 100px;height: 40px;font-size: 30px" formtarget="allWindow"></input>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登录" style="background: deepskyblue ; color:white; width: 100px;height: 40px;font-size: 30px" formtarget="allWindow"></input>
 </form>
 <%if(str!=null){%>
 <p style="color: red">
@@ -52,7 +52,7 @@
     账号:<input type="text" name="user_name" autofocus="true" placeholder="用户名" style="width: 140px"></input><br/>
     密码:<input type="password" name="user_pass"
               placeholder="密码" style="width: 140px"></input><br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="注册" style="background: red ;width: 100px;height: 40px;font-size: 30px" formtarget="allWindow"></input>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="注册" style="background: red ;color:white;width: 100px;height: 40px;font-size: 30px" formtarget="allWindow"></input>
 </form>
 <%if(str2!=null){%>
 <p style="color: red">

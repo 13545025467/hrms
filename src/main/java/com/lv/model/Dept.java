@@ -11,6 +11,7 @@ import java.io.Serializable;
 public class Dept implements Serializable{//部门表
     private int dept_id;//部门id
     private String dept_name;//部门名称
+    private String dept_createtime;
 
     public Dept() {
     }
@@ -31,11 +32,20 @@ public class Dept implements Serializable{//部门表
         this.dept_name = dept_name;
     }
 
+    public String getDept_createtime() {
+        return dept_createtime;
+    }
+
+    public void setDept_createtime(String dept_createtime) {
+        this.dept_createtime = dept_createtime;
+    }
+
     @Override
     public String toString() {
         return "Dept{" +
                 "dept_id=" + dept_id +
                 ", dept_name='" + dept_name + '\'' +
+                ", dept_createtime='" + dept_createtime + '\'' +
                 '}';
     }
 }

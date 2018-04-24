@@ -20,7 +20,7 @@
         <frame src="managetop.jsp" scrolling="no">
         </frame>
         <frameset cols="30%,60%,*">
-            <frame src="manageleft.jsp" noresize="noresize" scrolling="no" frameborder="no"  />
+            <frame src="manageleft.jsp" noresize="noresize"  frameborder="no"  />
             <frame name="rightWindow" src="http://www.youdao.com" noresize="noresize" ></frame>
             <frame  noresize="noresize" scrolling="no" />
         </frameset>

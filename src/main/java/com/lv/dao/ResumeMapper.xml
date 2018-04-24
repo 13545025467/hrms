@@ -42,4 +42,7 @@
     <select id="getAll" resultType="com.lv.model.Resume">
          SELECT * FROM T_RESUME WHERE RES_STATE=#{res_state}
     </select>
+    <select id="getResumeById" resultType="com.lv.model.Resume">
+        SELECT * FROM T_RESUME WHERE RES_ID=#{res_id}
+    </select>
 </mapper>

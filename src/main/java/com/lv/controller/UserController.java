@@ -32,6 +32,7 @@ public class UserController {
                 if (null!=user1){
                     session.setAttribute("user",user1);
                     session.removeAttribute("error");
+                    session.removeAttribute("getAudition");
                     return "../../index";
                 }
                 session.setAttribute("error","账号或密码错误");
@@ -72,10 +73,28 @@ public class UserController {
 
     @RequestMapping("/userUpdatePass1")//user修改密码
     public String userUpdatePass1(String pass2,HttpSession session){
-        User user1= (User) session.getAttribute("user");//new password
-        user1.setUser_pass(pass2);//当前用户
-        userService.updatePass(user1);//通过用户名修改
-        session.removeAttribute("user");//重新登录
+
+        User user1;//new password
+
+
+        try {
+            user1 = (User) session.getAttribute("user");
+            user1.setUser_pass(pass2);//当前用户
+            userService.updatePass(user1);//通过用户名修改
+            session.removeAttribute("user");//重新登录
+            session.setAttribute("user",null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        System.out.println("meiyoudenglu");
         return "userUpdatePass";
+
     }
+    @RequestMapping("/calendar")//查看日历
+    public String calendar(){
+        return "calendar";
+    }
+
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lv.dao.PostMapper">
+    <insert id="savePost">
+        INSERT INTO T_POST( POST_TITLE, DEPT_ID, POST_SAL) VALUES
+        (#{post_title},#{dept_id},#{post_sal})
+    </insert>
+    <update id="updatePost">
+        UPDATE T_POST
+        <set>
+            <if test="post_sal!=0">
+                post_sal = #{post_sal},
+            </if>
+            <if test="post_title!=null">
+                post_title=#{post_title},
+            </if>
+            <if test="dept_id!=0">
+                dept_id=#{dept_id}
+            </if>
+        </set>
+        where post_id=#{post_id}
+    </update>
+    <delete id="deletePost">
+        DELETE FROM T_POST WHERE  post_id=#{post_id}
+    </delete>
+    <select id="getPostByName" resultType="com.lv.model.Post">
+        SELECT * FROM T_POST WHERE  post_title=#{post_title}
+    </select>
+
+    <select id="getAllPost" resultType="com.lv.model.Post">
+        SELECT * FROM T_POST
+    </select>
+    <select id="getPostByDept" resultType="com.lv.model.Post">
+        SELECT * FROM T_POST WHERE DEPT_ID=#{dept_id}
+    </select>
+    <select id="getPostByNameAndDept" resultType="com.lv.model.Post">
+        select * from T_POST WHERE POST_TITLE=#{post_title} and dept_id=#{dept_id};
+    </select>
+</mapper>

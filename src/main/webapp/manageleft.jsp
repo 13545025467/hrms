@@ -10,6 +10,7 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<% String deptName="";%>
 <html>
 <head>
     <base href="<%=basePath%>"/>
@@ -43,9 +44,12 @@
         <li class="level1">
             <a href="#none"><span style="font-size: 16px">部门管理</span><i></i></a>
             <ul class="level2">
-                <li><a href="javascript:;"target="rightWindow">部门信息</a></li>
-                <li><a href="javascript:;"target="rightWindow">导航选项</a></li>
-                <li><a href="javascript:;"target="rightWindow">导航选项</a></li>
+                <li><a href="getAllDept"target="rightWindow">部门信息</a></li>
+                <form action="addDept" method="post">
+                    <input type="hidden" id="deptName"   name="deptName" >
+                    <input type="submit" onclick="prom()" target="rightWindow" value="创建部门" style="font-size:12px;color: blue; ">
+                </form>
+                <li><a href="updateDeptName"target="rightWindow">修改部门名称</a></li>
                 <li><a href="javascript:;"target="rightWindow">导航选项</a></li>
             </ul>
         </li>
@@ -75,5 +79,16 @@
         </li>
     </ul>
 </div>
+
+<script>
+function prom() {
+var name = prompt("请输入部门名称", ""); //将输入的内容赋给变量 name ，
+//prompt有两个参数，前面是提示的话，后面是当对话框出来后，在对话框里的默认值
+    if (name){//如果返回的有内容
+         var depatN = document.getElementById("deptName")  ;
+        depatN.value=name;
+    }
+}
+</script>
 </body>
 </html>

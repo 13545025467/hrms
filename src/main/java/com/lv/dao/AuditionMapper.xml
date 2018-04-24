@@ -5,4 +5,37 @@
         INSERT INTO T_AUDITION(AUDI_POST, RES_ID, REC_ID) VALUES
         (#{audi_post},#{resume.res_id},#{recruit.rec_id})
     </insert>
+    <update id="updateAudition">
+        UPDATE T_AUDITION
+        <set>
+            <if test="audi_local!=null">
+                audi_local =#{audi_local},
+            </if>
+            <if test="audi_state!=null">
+                audi_state =#{audi_state},
+            </if>
+            <if test="audi_tel!=null">
+                audi_tel=#{audi_tel},
+            </if>
+            <if test="audi_time!=null">
+                audi_time=to_date(#{audi_time},'yyyy-mm-dd')
+            </if>
+        </set>
+        where audi_id=#{audi_id}
+    </update>
+    <select id="getAuditioinByPost" resultType="com.lv.model.Audition">
+        SELECT a.* FROM T_AUDITION a,T_RESUME r,T_RECRUIT re
+        WHERE a.RES_ID=r.res_id and a.rec_id=re.rec_id and a.audi_state=0 and r.res_id=#{res_id}
+    </select>
+    <select id="getAuditionByUser" resultType="com.lv.model.Audition">
+        SELECT * FROM T_AUDITION WHERE RES_ID=#{res_id} and rec_id=#{rec_id}
+    </select>
+    <select id="getAuditionUserLook" resultType="com.lv.model.Audition">
+        SELECT * FROM T_AUDITION WHERE AUDI_STATE in(1,2,3,4) and RES_ID=#{res_id}
+    </select>
+    <select id="getAuditioinById" resultType="com.lv.model.Audition">
+        SELECT * FROM T_AUDITION WHERE AUDI_ID=#{audi_id}
+    </select>
+
+
 </mapper>

@@ -1,3 +1,6 @@
+<%@ taglib prefix="e" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page errorPage="/errorPage.jsp" %>
 <%--
   Created by IntelliJ IDEA.
   User: xgq
@@ -37,7 +40,7 @@
         <a href="selectResume" target="rightWindow">我的简历</a>
     </li>
     <li>
-        <a href="http://www.360.com" target="rightWindow">我的消息</a>
+        <a href="selectAudition" target="rightWindow">我的消息</a>
     </li>
     <li>
         <a href="userUpdatePass" target="rightWindow">修改密码</a>

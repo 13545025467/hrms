@@ -17,4 +17,7 @@
     <select id="manageLogin" resultType="com.lv.model.Manage">
          SELECT * FROM T_MANAGE WHERE MAN_NAME=#{man_name} and man_pass=#{man_pass}
     </select>
+    <select id="getUserById" resultType="com.lv.model.User">
+        SELECT * FROM T_USER WHERE USER_ID=#{user_id}
+    </select>
 </mapper>

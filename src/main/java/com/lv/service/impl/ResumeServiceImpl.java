@@ -24,6 +24,10 @@ public class ResumeServiceImpl implements ResumeService{
         return resumeMapper.getAll(resume);
     }
 
+    public Resume getResumeById(Resume resume) {
+        return resumeMapper.getResumeById(resume);
+    }
+
     public boolean saveResume(Resume resume) {
         resumeMapper.saveResume(resume);
         return false;

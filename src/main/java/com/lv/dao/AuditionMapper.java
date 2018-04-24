@@ -1,6 +1,7 @@
 package com.lv.dao;
 
 import com.lv.model.Audition;
+import com.lv.model.Recruit;
 import com.lv.model.Resume;
 
 import java.util.Set;
@@ -10,7 +11,10 @@ import java.util.Set;
  */
 public interface AuditionMapper {
     Set<Audition> getAudition();
-    Set<Audition> getAuditionByUser(Resume resume);
+    Audition getAuditionByUser(Resume resume, Recruit recruit);
+    Set<Audition> getAuditionUserLook(Resume resume);
+    Audition getAuditioinByPost(Resume resume);
+    Audition getAuditioinById(Audition audition);
     boolean saveAudition(Audition audition);
     boolean updateAudition(Audition audition);
     boolean deleteAudition(Audition audition);

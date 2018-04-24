@@ -16,7 +16,7 @@ public class Audition implements Serializable {//面试邀请表
     private String audi_tel;//公司联系电话
     private Resume resume;//对应简历信息，知道邀请的是谁
     private Recruit recruit;//对应招聘信息，知道招聘的职位和一些要求
-
+    private int audi_state;
     public Audition() {
     }
 
@@ -74,6 +74,14 @@ public class Audition implements Serializable {//面试邀请表
 
     public void setRecruit(Recruit recruit) {
         this.recruit = recruit;
+    }
+
+    public int getAudi_state() {
+        return audi_state;
+    }
+
+    public void setAudi_state(int audi_state) {
+        this.audi_state = audi_state;
     }
 
     @Override

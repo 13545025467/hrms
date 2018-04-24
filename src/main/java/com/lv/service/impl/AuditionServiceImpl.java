@@ -2,6 +2,7 @@ package com.lv.service.impl;
 
 import com.lv.dao.AuditionMapper;
 import com.lv.model.Audition;
+import com.lv.model.Recruit;
 import com.lv.model.Resume;
 import com.lv.service.AuditionService;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,20 @@ public class AuditionServiceImpl implements AuditionService {
         return auditionMapper.getAudition();
     }
 
-    public Set<Audition> getAuditionByUser(Resume resume) {
-        return auditionMapper.getAuditionByUser(resume);
+    public Audition getAuditionByUser(Resume resume, Recruit recruit) {
+        return auditionMapper.getAuditionByUser(resume,recruit);
+    }
+
+    public Set<Audition> getAuditionUserLook(Resume resume) {
+        return auditionMapper.getAuditionUserLook(resume);
+    }
+
+    public Audition getAuditioinByPost(Resume resume) {
+        return auditionMapper.getAuditioinByPost(resume);
+    }
+
+    public Audition getAuditioinById(Audition audition) {
+        return auditionMapper.getAuditioinById(audition);
     }
 
     public boolean saveAudition(Audition audition) {

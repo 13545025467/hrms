@@ -2,11 +2,14 @@ package com.lv.controller;
 
 import com.lv.model.*;
 import com.lv.service.*;
+import com.lv.util.DateTime;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Set;
 
 /**
  * Created by xgq on 2018/4/22.
@@ -28,6 +31,8 @@ public class ResumeController {
     @Resource
     private User user;
     @Resource
+    private UserService userService;
+    @Resource
     private RecruitService recruitService;
     @Resource
     private Recruit recruit;
@@ -37,14 +42,13 @@ public class ResumeController {
     private AuditionService audi;
     @RequestMapping("/selectResume")//查看简历
     public String selectResume(HttpSession session){
-        user= (User) session.getAttribute("user");
-         resume=resumeService.getResume(user);
         try {
+            user= (User) session.getAttribute("user");
+            resume=resumeService.getResume(user);
             education=educationService.getEducation(resume);
             experience=experienceService.getExperience(resume);
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+            System.out.println("没有登录");
         }
 
         session.setAttribute("resume",resume);
@@ -144,13 +148,95 @@ public class ResumeController {
         audition.setResume(resume2);
         audition.setRecruit(recruit1);
         audition.setAudi_post(recruit1.getRec_job());
+        audition.setAudi_state(0);
         audi.saveAudition(audition);
         System.out.println("777777777");
         return "recruitDetails";
     }
 
     @RequestMapping("/intoResume")
-    public String inoResume(HttpSession session){//
-        return null;
+    public String inoResume(HttpSession session){//管理员根据简历的状态确定是否投递，并查看已投递的简历
+        try {
+            resume.setRes_state("已发布");
+            Set<Resume> resumes=resumeService.getAll(resume);
+            System.out.println(resumes);
+            session.setAttribute("intoResume",resumes);
+        } catch (Exception e) {
+            System.out.write(Integer.parseInt("还没有消息"));
+        }
+        return "mSelectResume";
+    }
+
+    @RequestMapping("resumeDetails")
+    public String resumeDetails(String rec_id,HttpSession session){
+        //管理员根据要查看的简历id查看详细信息
+        resume.setRes_id(Integer.parseInt(rec_id));
+        Resume resume1=resumeService.getResumeById(resume);
+        experience.setResume(resume1);
+        education.setResume(resume1);
+        Experience experience1=experienceService.getExperience(resume1);
+        Education education1=educationService.getEducation(resume1);
+        Audition post=audi.getAuditioinByPost(resume1);
+        session.setAttribute("mResume",resume1);
+        session.setAttribute("mPost",post);
+        session.setAttribute("mExperience",experience1);
+        session.setAttribute("mEducation",education1);
+        return "mResumeDetails";
+    }
+
+    @RequestMapping("/agreeAudition")//通知面试转到编辑页面
+    public String agreeAudition(HttpSession session){
+        return "mAgreeAudition";
+    }
+
+    @RequestMapping("/sendAudition")//管理员发送面试邀请
+    public String sendAudition(HttpSession session,Audition audition){
+    Resume resume= (Resume) session.getAttribute("mResume");
+     Audition audition1 = (Audition) session.getAttribute("mPost");
+    audition1.setAudi_local(audition.getAudi_local());
+    audition1.setAudi_tel(audition.getAudi_tel());
+    audition1.setAudi_time(audition.getAudi_time());
+    audition1.setAudi_state(1);
+    audi.updateAudition(audition1);
+        return "mSelectResume";
+    }
+
+    @RequestMapping("/selectAudition")
+    public String selectAudition(HttpSession session,Model model){
+
+        try {
+            User user1= (User) session.getAttribute("user");
+            System.out.println(user1);
+            Resume resume=resumeService.getResume(user1);
+            System.out.println(resume);
+            Set<Audition> getAudition=audi.getAuditionUserLook(resume);
+            System.out.println(getAudition);
+            session.setAttribute("getAudition",getAudition);
+        } catch (Exception e) {
+            return "selectAudition";
+        }
+
+        System.out.println("请登陆后重试");
+            session.setAttribute("notLogin","请登陆后重试");
+        return "selectAudition";
+    }
+
+    @RequestMapping("/goAudition")//用户同意前去面试
+    public  String goAudition(String audi_id,Model model){
+        Audition audition1=new Audition();
+        audition1.setAudi_id(Integer.parseInt(audi_id));
+        if(new DateTime().dateParse(audi.getAuditioinById(audition1).getAudi_time()).after(new DateTime().getDate2())){
+            //判断如果管理员发送的面试邀请的时间在你确认前去面试的时间之后则可以去面试
+            audition.setAudi_id(Integer.parseInt(audi_id));
+            audition.setAudi_state(2);
+            audi.updateAudition(audition);
+            return "selectAudition";
+        }
+        Audition audition2=new Audition();
+        audition2.setAudi_id(Integer.parseInt(audi_id));
+        audition2.setAudi_state(3);
+        audi.updateAudition(audition2);
+        model.addAttribute("oldTime","已经过了面试时间，请重新投递简历");
+           return "selectAudition";
     }
 }

@@ -1,4 +1,6 @@
-<%@ page import="com.lv.model.User" %><%--
+<%@ page import="com.lv.model.User" %>
+<%@ page errorPage="/errorPage.jsp" %>
+<%--
   Created by IntelliJ IDEA.
   User: xgq
   Date: 2018/4/21
@@ -32,11 +34,12 @@
                 </div>
                <%--用户登录后才可以修改密码--%>
                 <%if (user!=null){%>
-                <div><input type="submit" value="确认修改"></div>
+                <div><input type="submit" value="确认修改" ></div>
                 <%}%>
             </form>
         </div>
     <script type="text/javascript">
+
         function check(form) {
             if (form.name.value !=<%= user.getUser_pass()%>) {
                 alert('旧密码错误');
@@ -49,9 +52,13 @@
             if (form.pass.value != form.pass2.value) {
                 alert('两次输入密码不一致');
                 return;
+            }else{
+
+                    alert("密码修改成功，请使用新密码登录")
             }
             form.submit();
         }
+
     </script>
 
 </body>
