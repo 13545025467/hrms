@@ -6,6 +6,7 @@ import com.lv.service.DeptService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,6 +21,14 @@ public class DeptServiceImpl implements DeptService {
 
     public Set<Dept> getAllDept() {
         return deptMapper.getAllDept();
+    }
+
+    public List<Dept> getAllDept2() {
+        return deptMapper.getAllDept2();
+    }
+
+    public Dept getDeptById(Dept dept) {
+        return deptMapper.getDeptById(dept);
     }
 
     public boolean saveDept(Dept dept) {

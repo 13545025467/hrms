@@ -20,8 +20,16 @@ public class RecruitServiceImpl implements RecruitService {
         return recruitMapper.getRecruits();
     }
 
+    public Set<Recruit> getAllRecruits() {
+        return recruitMapper.getAllRecruits();
+    }
+
     public Recruit getRecruitById(Recruit recruit) {
         return recruitMapper.getRecruitById(recruit);
+    }
+
+    public Recruit getRecruitByName(Recruit recruit) {
+        return recruitMapper.getRecruitByName(recruit);
     }
 
     public boolean deleteRecruit(Recruit recruit) {

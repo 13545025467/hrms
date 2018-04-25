@@ -11,7 +11,9 @@ import java.util.Set;
  */
 public interface PostMapper {
     Post getPostByName(Post post);
+    Post getPostById(Post post);
     Post getPostByNameAndDept(Post post);
+    Post updateGetPostByNameAndDept(Post post);
     Post getPostByEmp(Employee employee);
     Set<Post> getAllPost();
     Set<Post> getPostByDept(Dept dept);

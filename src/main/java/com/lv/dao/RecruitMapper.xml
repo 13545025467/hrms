@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lv.dao.RecruitMapper">
+    <insert id="saveRecruit">
+        INSERT INTO T_RECRUIT( REC_JOB, REC_COUNT, REC_LOCAL, REC_EDUCATION, REC_BEFOREJOB, REC_SAL, REC_REQUIRE, REC_COMPANY, REC_STATE) VALUES
+        (#{rec_job},#{rec_count},#{rec_local},#{rec_education},#{rec_beforejob},#{rec_sal},#{rec_require},#{rec_company},#{rec_state})
+    </insert>
+    <update id="updateRecruit">
+        UPDATE T_RECRUIT
+        <set>
+            <if test="rec_job!=null">
+                rec_job=#{rec_job},
+            </if>
+            <if test="rec_beforejob!=null">
+                rec_beforejob=#{rec_beforejob},
+            </if>
+            <if test="rec_company!=null">
+                rec_company=#{rec_company},
+            </if>
+            <if test="rec_count!=null">
+                rec_count=#{rec_count},
+            </if>
+            <if test="rec_education!=null">
+                rec_education=#{rec_education},
+            </if>
+            <if test="rec_state!=null">
+                rec_state=#{rec_state},
+            </if>
+            <if test="rec_require!=null">
+                rec_require=#{rec_require},
+            </if>
+            <if test="rec_local!=null">
+                rec_local=#{rec_local}
+            </if>
+        </set>
+        where rec_id=#{rec_id}
+    </update>
+    <delete id="deleteRecruit">
+        DELETE FROM T_RECRUIT WHERE rec_id=#{rec_id}
+    </delete>
     <select id="getRecruits" resultType="com.lv.model.Recruit">
+        SELECT * FROM T_RECRUIT WHERE REC_STATE='招聘中'
+    </select>
+    <select id="getAllRecruits" resultType="com.lv.model.Recruit">
         SELECT * FROM T_RECRUIT
     </select>
     <select id="getRecruitById" resultType="com.lv.model.Recruit">
         SELECT * FROM T_RECRUIT WHERE REC_ID=#{rec_id}
+    </select>
+    <select id="getRecruitByName" resultType="com.lv.model.Recruit">
+        SELECT * FROM T_RECRUIT WHERE REC_JOB=#{rec_job}
     </select>
 </mapper>

@@ -11,6 +11,8 @@ import java.util.Set;
  */
 public interface PostService {
     Post getPostByName(Post post);
+    Post getPostById(Post post);
+    Post updateGetPostByNameAndDept(Post post);
     Post getPostByNameAndDept(Post post);
     Post getPostByEmp(Employee employee);
     Set<Post> getAllPost();

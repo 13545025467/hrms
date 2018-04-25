@@ -6,7 +6,7 @@
         (#{dept_createtime},#{dept_name})
     </insert>
     <update id="updateDept">
-        UPDATE T_DEPT SET DEPT_NAME=#{dept_name}
+        UPDATE T_DEPT SET DEPT_NAME=#{dept_name} where dept_id=#{dept_id}
     </update>
     <delete id="deleteDept">
         DELETE FROM T_DEPT WHERE DEPT_NAME=#{dept_name}
@@ -15,6 +15,12 @@
         SELECT * FROM T_DEPT WHERE DEPT_NAME=#{dept_name}
     </select>
     <select id="getAllDept" resultType="com.lv.model.Dept">
+        SELECT * FROM T_DEPT
+    </select>
+    <select id="getDeptById" resultType="com.lv.model.Dept">
+        SELECT * FROM T_DEPT WHERE DEPT_ID=#{dept_id}
+    </select>
+    <select id="getAllDept2" resultType="com.lv.model.Dept">
         SELECT * FROM T_DEPT
     </select>
 </mapper>

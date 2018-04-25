@@ -2,26 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.lv.dao.PostMapper">
     <insert id="savePost">
-        INSERT INTO T_POST( POST_TITLE, DEPT_ID, POST_SAL) VALUES
-        (#{post_title},#{dept_id},#{post_sal})
+        INSERT INTO T_POST(POST_TITLE, DEPT_ID, POST_SAL) VALUES
+        (#{post_title},#{dept.dept_id},#{post_sal})
     </insert>
     <update id="updatePost">
         UPDATE T_POST
         <set>
-            <if test="post_sal!=0">
-                post_sal = #{post_sal},
-            </if>
             <if test="post_title!=null">
                 post_title=#{post_title},
             </if>
-            <if test="dept_id!=0">
-                dept_id=#{dept_id}
+            <if test="post_sal>0">
+                post_sal=#{post_sal}
             </if>
         </set>
         where post_id=#{post_id}
     </update>
+    <select id="updateGetPostByNameAndDept" resultType="com.lv.model.Post">
+        select * from T_POST WHERE POST_TITLE=#{post_title} and dept_id=#{dept.dept_id}
+    </select>
     <delete id="deletePost">
-        DELETE FROM T_POST WHERE  post_id=#{post_id}
+        DELETE FROM T_POST  WHERE  post_id=#{post_id}
     </delete>
     <select id="getPostByName" resultType="com.lv.model.Post">
         SELECT * FROM T_POST WHERE  post_title=#{post_title}
@@ -34,6 +34,9 @@
         SELECT * FROM T_POST WHERE DEPT_ID=#{dept_id}
     </select>
     <select id="getPostByNameAndDept" resultType="com.lv.model.Post">
-        select * from T_POST WHERE POST_TITLE=#{post_title} and dept_id=#{dept_id};
+        select * from T_POST WHERE POST_TITLE=#{post_title} and dept_id=#{dept.dept_id}
+    </select>
+    <select id="getPostById" resultType="com.lv.model.Post">
+        SELECT * FROM T_POST WHERE POST_ID=#{post_id}
     </select>
 </mapper>

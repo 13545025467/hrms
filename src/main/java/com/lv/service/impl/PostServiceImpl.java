@@ -21,6 +21,14 @@ public class PostServiceImpl implements PostService {
         return postMapper.getPostByName(post);
     }
 
+    public Post getPostById(Post post) {
+        return postMapper.getPostById(post);
+    }
+
+    public Post updateGetPostByNameAndDept(Post post) {
+        return postMapper.updateGetPostByNameAndDept(post);
+    }
+
     public Post getPostByNameAndDept(Post post) {
         return postMapper.getPostByNameAndDept(post);
     }

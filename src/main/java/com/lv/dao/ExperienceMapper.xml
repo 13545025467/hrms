@@ -9,7 +9,7 @@
         UPDATE T_EXPERIENCE
         <set>
             <if test="exp_company!=null">
-                exp_company = #{exp_company},
+                exp_company =#{exp_company},
             </if>
             <if test="exp_in!=null">
                 exp_in=to_date(#{exp_in},'yyyy-mm-dd'),

@@ -23,7 +23,7 @@
 
     <frameset cols="15%,70%,*">
         <frame src="index2.jsp" noresize="noresize" frameborder="no"  />
-        <frame name="rightWindow" src="http://www.youdao.com" noresize="noresize" ></frame>
+        <frame name="rightWindow" src="http://ts.zhaopin.com/jump/index_new.html?sid=121120123&site=360so_pz_zbt_zhilianzhaopin1" noresize="noresize" ></frame>
         <frame src="index1.jsp" noresize="noresize" scrolling="no" />
     </frameset>
 </frameset>

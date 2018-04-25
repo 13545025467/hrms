@@ -73,7 +73,8 @@
         <li class="level1">
             <a href="#none"><span style="font-size: 16px">招聘信息</span><i></i></a>
             <ul class="level2">
-                <li><a href="javascript:;" target="rightWindow">发布招聘信息</a></li>
+                <li><a href="addRecruit" target="rightWindow">填写招聘信息</a></li>
+                <li><a href="mSelectRecruit" target="rightWindow">查看招聘信息</a></li>
                 <li><a href="intoResume" target="rightWindow">查阅简历</a></li>
             </ul>
         </li>

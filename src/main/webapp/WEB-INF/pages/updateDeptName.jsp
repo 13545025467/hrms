@@ -24,23 +24,23 @@
         <th>部门编号</th>
         <th>部门名称</th>
         <th>创建时间</th>
-        <th>全体员工</th>
+        <th>执行操作</th>
     </tr>
 
-    <form action="updateDept" method="post">
+
     <c:forEach items="${dept}" var="r" varStatus="status">
         <tr>
+            <form action="updateDept" method="post">
             <td>${r.dept_id}</td>
             <td>
             <input type="text" name="dept_name" value=${r.dept_name}>
             </td>
             <td>${r.dept_createtime}</td>
-            <td>
-
-                    <%--<input type="hidden"  name="dept_name" >--%>
+                <td>
+                    <input type="hidden"  name="dept_id" value=${r.dept_id} >
                     <input type="submit" value="确认修改">
-                </form>
             </td>
+            </form>
         </tr>
     </c:forEach>
 </table>

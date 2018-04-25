@@ -48,4 +48,14 @@ public class Post implements Serializable {//职位表
     public void setDept(Dept dept) {
         this.dept = dept;
     }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "post_id=" + post_id +
+                ", post_title='" + post_title + '\'' +
+                ", post_sal=" + post_sal +
+                ", dept=" + dept +
+                '}';
+    }
 }
